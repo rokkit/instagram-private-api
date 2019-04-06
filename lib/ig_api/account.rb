@@ -17,6 +17,8 @@ module IgApi
     end
 
     def login(username, password, config = IgApi::Configuration.new)
+      raise "k"
+      puts "k2"
       user = User.new username: username,
                       password: password
 

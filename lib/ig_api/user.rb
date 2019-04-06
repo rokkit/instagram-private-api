@@ -8,7 +8,6 @@ module IgApi
     attr_accessor :username, :config, :session, :data
 
     def initialize(params = {})
-      raise "k"
       @account = nil
       @feed = nil
       @api = IgApi::Http.singleton
