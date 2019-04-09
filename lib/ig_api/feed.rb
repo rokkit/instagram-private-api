@@ -24,7 +24,7 @@ module IgApi
                      .with(session: @user[:session], ua: @user[:ua])
                      .exec
 
-      response.body
+      JSON.parse response.body
     end
 
     def timeline_media(params = {})
