@@ -66,5 +66,16 @@ module IgApi
       )
       JSON.parse result.body, object_class: OpenStruct
     end
+
+    def user_highlights_tray(user_id, params = {})
+      rank_token = IgApi::Http.generate_rank_token @user[:id]
+      endpoint = Constants::URL + "highlights/#{user_id}/highlights_tray/"
+      endpoint << "?rank_token=#{rank_token}"
+      params.each { |k, v| endpoint << "&#{k}=#{v}" }
+      result = @api.get(endpoint)
+                   .with(session: @user[:session], ua: @user[:ua])
+                   .exec
+      JSON.parse result.body, object_class: OpenStruct
+    end
   end
 end
